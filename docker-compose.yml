@@ -1,0 +1,46 @@
+version: '3.8'
+services:
+  backend:
+    build: 
+      context: ./back_node_react
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+    environment:
+      - MYSQL_HOST=db
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=password
+      - MYSQL_DB=nr_bd2
+    depends_on:
+      - db
+  
+  frontend:
+    build: 
+      context: ./front_react_node
+    ports:
+      - "81:80"
+    networks:
+      - app-network
+    depends_on:
+      - backend
+  
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: nr_bd2
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  db_data:

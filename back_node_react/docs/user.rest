@@ -1,0 +1,25 @@
+GET http://127.0.0.1:3000/api/v1/admin/usuario
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJqdWFuQG1haWwuY29tIiwidGltZSI6IjIwMjMtMTEtMDhUMDA6NTk6NTUuNDk5WiIsImlhdCI6MTY5OTQwNTE5NSwiZXhwIjoxNjk5NDA4Nzk1fQ.8sPh7gSSMXpI9LVJu8Ru6kStgaHBtqlrTg4VM7nSANc
+### guardar
+POST http://127.0.0.1:3000/api/v1/admin/usuario
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJqdWFuQG1haWwuY29tIiwidGltZSI6IjIwMjMtMTEtMTRUMDA6Mjk6MjkuMDQ0WiIsImlhdCI6MTY5OTkyMTc2OSwiZXhwIjoxNjk5OTI1MzY5fQ.YWhbY3gvIwDbl_9s6buQtfsCJjeneE4s_MZnJwUOSoA
+
+{
+    "username": "maria",
+    "email": "maria@mail.com",
+    "password": "maria54321"
+}
+
+### mostrar
+GET http://127.0.0.1:3000/api/v1/admin/usuario/3
+
+### modificar
+PUT http://127.0.0.1:3000/api/v1/admin/usuario/2
+Content-Type: application/json
+
+{
+    "username": "cristian modificado",
+    "email": "cristian.modificado@mail.com",
+    "password": "cristian543210"
+}
